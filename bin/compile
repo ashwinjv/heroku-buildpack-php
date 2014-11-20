@@ -379,7 +379,7 @@ if [[ -n "${NEW_RELIC_CONFIG_FILE:-}" ]]; then
     notice_inline "Using custom New Relic config '${NEW_RELIC_CONFIG_FILE}'"
     ( cd $BUILD_DIR/.heroku/php/etc/php/conf.d; ln -s "../../../../../${NEW_RELIC_CONFIG_FILE}" "ext-newrelic.user.ini" )
 fi
-source $BP_DIR/bin/phalcon
+
 if [[ ! -f "Procfile" ]]; then
     bindir=$(composer config bin-dir 2> /dev/null | tail -n 1) # tail, as composer echos outdated version warnings to STDOUT
     echo "web: $bindir/heroku-$engine-apache2" > Procfile
